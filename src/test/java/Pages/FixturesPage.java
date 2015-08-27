@@ -24,18 +24,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  */
 public class FixturesPage extends BasePage {
     /**
-     * Longitude value
-     */
-    @AndroidFindBy(id = "longitude")
-    private MobileElement longitude;
-
-    /**
-     * Latitude value
-     */
-    @AndroidFindBy(id = "lat")
-    private MobileElement latitude;
-
-    /**
      * wifi value
      */
     @AndroidFindBy(id = "wifi")
@@ -61,21 +49,6 @@ public class FixturesPage extends BasePage {
 
     public FixturesPage(AppiumDriver driver) {
         super(driver);
-    }
-
-    /**
-     * @return longitude
-     */
-    public String getLongitude() {
-        return longitude.getText();
-    }
-
-    /**
-     *
-     * @return latitude
-     */
-    public String getLatitude() {
-        return latitude.getText();
     }
 
     /**

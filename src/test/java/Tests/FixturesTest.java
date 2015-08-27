@@ -25,12 +25,6 @@ import org.testng.annotations.Test;
  * Tests for Device Farm fixtures
  */
 public class FixturesTest extends TestBase {
-    /**
-     * The default (Space Needle) location within Device Farm
-     */
-    private final String LATITUDE = "47.6204";
-    private final String LONGITUDE = "-122.3491";
-
     private FixturesPage fixturesPage;
 
     @Override
@@ -45,22 +39,6 @@ public class FixturesTest extends TestBase {
     @Override
     public void setUpPage() {
         fixturesPage = new FixturesPage(driver);
-    }
-
-    /**
-     * Tests if the Longitude is equal to the default value
-     */
-    @Test
-    public void testLongitude(){
-        Assert.assertEquals(fixturesPage.getLongitude(), LONGITUDE);
-    }
-
-    /**
-     * Tests if the Latitude is equal to the default value
-     */
-    @Test
-    public void testLatitude(){
-        Assert.assertEquals(fixturesPage.getLatitude(), LATITUDE);
     }
 
     /**
