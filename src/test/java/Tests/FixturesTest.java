@@ -66,7 +66,7 @@ public class FixturesTest extends TestBase {
     }
 
     /**
-     * Tests to see if NFC is on
+     * Tests to see if NFC is on. Fails on devices with no NFC support.
      */
     @Test
     public void testNFCOn(){
