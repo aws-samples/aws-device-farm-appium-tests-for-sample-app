@@ -57,6 +57,6 @@ public class EditText extends InputTests {
     @Test
     public void testTextBox(){
         editTextPage.enterText(TEXT_TO_INPUT);
-        Assert.assertEquals(editTextPage.getTextBoxText(), TEXT_TO_INPUT);
+        Assert.assertTrue(editTextPage.getTextBoxText().contains(TEXT_TO_INPUT));
     }
 }
