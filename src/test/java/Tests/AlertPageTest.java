@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
  * Tests for alert page
  */
 public class AlertPageTest extends TestBase {
-    private final String ALERT_MESSAGE = "This is the alert message";
+    private static final String ALERT_MESSAGE = "This is the alert message";
     private AlertPage alertPage;
 
     @Override

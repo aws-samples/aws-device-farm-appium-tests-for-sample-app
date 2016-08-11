@@ -27,13 +27,13 @@ public class HomePage extends BasePage{
     /**
      * The headline of the homepage
      */
-    @AndroidFindBy(id = "homepage_headline")
+    @AndroidFindBy(name = "Homepage Headline")
     private WebElement headline;
 
     /**
      * the subheader of the homepage
      */
-    @AndroidFindBy(id = "homepage_subheadline")
+    @AndroidFindBy(id = "Homepage Subheader")
     private WebElement subheader;
 
     public HomePage(AppiumDriver driver) {

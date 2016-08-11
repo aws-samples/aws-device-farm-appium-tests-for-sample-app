@@ -26,7 +26,7 @@ import org.testng.annotations.Test;
  * Tests for the spinner control
  */
 public class SpinnerTest extends InputTests {
-    private final String SPINNER_BASE_STRING = "Selected: %s";
+    private static final String SPINNER_BASE_STRING = "Selected: %s";
 
     private SpinnerPage spinnerPage;
 
@@ -54,7 +54,7 @@ public class SpinnerTest extends InputTests {
      * text appears in the text view
      */
     @Test
-    public void checkIndex(){
+    public void checkIndex() {
         spinnerPage.selectSpinnerAtIndex(3);
         Assert.assertEquals(spinnerPage.getDisplayText(), String.format(SPINNER_BASE_STRING, spinnerPage.getSelectedEntry()));
     }

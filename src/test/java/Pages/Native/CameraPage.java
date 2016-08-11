@@ -27,7 +27,7 @@ public class CameraPage extends BasePage {
     /**
      * The camera preview
      */
-    @AndroidFindBy(id = "camera_surface_view")
+    @AndroidFindBy(name = "Camera Preview Streaming")
     private MobileElement cameraPreview;
 
     public CameraPage(AppiumDriver driver) {

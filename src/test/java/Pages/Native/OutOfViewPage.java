@@ -29,7 +29,7 @@ public class OutOfViewPage extends BasePage {
     /**
      * The scrollview
      */
-    @AndroidFindBy(id = "out_of_content_scrollView")
+    @AndroidFindBy(className = "android.widget.ScrollView")
     private MobileElement scrollView;
 
     public OutOfViewPage(AppiumDriver driver) {
@@ -41,7 +41,7 @@ public class OutOfViewPage extends BasePage {
      * @return if the hidden element is displayed
      */
     public boolean isHiddenTextDisplayed() {
-        WebElement outOfViewText = driver.findElementById("hidden_text");
+        WebElement outOfViewText = driver.findElementByName("This is hidden text");
         return outOfViewText.isDisplayed();
     }
 
@@ -49,8 +49,10 @@ public class OutOfViewPage extends BasePage {
      * Scrolls to the bottom of the scrollview
      */
     public void scrollDownToHiddenText() {
-        scrollView.swipe(SwipeElementDirection.UP, 10, 10, 1000);
-        scrollView.swipe(SwipeElementDirection.UP, 10, 10, 1000);
-        scrollView.swipe(SwipeElementDirection.UP, 10, 10, 1000);
+        try {
+            scrollView.swipe(SwipeElementDirection.UP, 10, 10, 1000);
+            scrollView.swipe(SwipeElementDirection.UP, 10, 10, 1000);
+            scrollView.swipe(SwipeElementDirection.UP, 10, 10, 1000);
+        } catch (Exception e) {} // Catch "The swipe did not complete successfully" error
     }
 }

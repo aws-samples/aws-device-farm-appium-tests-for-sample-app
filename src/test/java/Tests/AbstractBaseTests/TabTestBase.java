@@ -18,12 +18,11 @@ package Tests.AbstractBaseTests;
 import Pages.TabViewPage;
 import Pages.WaitConfig;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 
 /**
  * This class is a base class for a pageview pased page
  */
-public abstract class TabTestBase extends TestBase{
+public abstract class TabTestBase extends TestBase {
     private TabViewPage tabViewPage;
 
     /**

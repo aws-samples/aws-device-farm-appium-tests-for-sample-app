@@ -19,7 +19,7 @@ package Tests.AbstractBaseTests;
  * This class set's the Category name for all of the
  * Native Components viewpager tabs.
  */
-public abstract class NativeTests extends TabTestBase{
+public abstract class NativeTests extends TabTestBase {
     @Override
     public String getName() {
         return "Native Components";

@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
  * Tests for media player
  */
 public class MediaPlayerTest extends NativeTests {
-    private final String MEDIA_PLAYER_CONTENT_DESCRIPTION = "Content Playing";
+    private static final String MEDIA_PLAYER_CONTENT_DESCRIPTION = "Content Playing";
     private MediaPlayerPage mediaPlayerPage;
 
     /**
@@ -51,7 +51,7 @@ public class MediaPlayerTest extends NativeTests {
      * Test if the media player's content description is playing
      */
     @Test
-    public void testIfMediaPlayerIsPlaying(){
+    public void testIfMediaPlayerIsPlaying() {
         Assert.assertEquals(mediaPlayerPage.getMediaPlayerStatus(), MEDIA_PLAYER_CONTENT_DESCRIPTION);
     }
 }

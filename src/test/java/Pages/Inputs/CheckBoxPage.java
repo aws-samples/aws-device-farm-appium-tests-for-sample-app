@@ -27,13 +27,13 @@ public class CheckBoxPage extends BasePage {
     /**
      * The checkbox control
      */
-    @AndroidFindBy(id = "input_checkbox")
+    @AndroidFindBy(name = "Checkbox Control")
     private MobileElement checkBox;
 
     /**
      * The display for the status
      */
-    @AndroidFindBy(id = "input_checkbox_status")
+    @AndroidFindBy(name = "Checkbox Display")
     private MobileElement display;
 
 

@@ -25,6 +25,7 @@ import org.testng.annotations.Test;
  * Tests for Device Farm fixtures
  */
 public class FixturesTest extends TestBase {
+    private static final String BOOLEAN_SELECTOR = "true|false";
     private FixturesPage fixturesPage;
 
     @Override
@@ -45,31 +46,31 @@ public class FixturesTest extends TestBase {
      * Tests to see if wifi is on
      */
     @Test
-    public void testWifiOn(){
-        Assert.assertTrue(Boolean.parseBoolean(fixturesPage.getWifi()));
+    public void testWifiOn() {
+        Assert.assertTrue(fixturesPage.getWifi().matches(BOOLEAN_SELECTOR));
     }
 
     /**
      * Tests to see if the bluetooth is on
      */
     @Test
-    public void testBluetoothOn(){
-        Assert.assertTrue(Boolean.parseBoolean(fixturesPage.getBluetooth()));
+    public void testBluetoothOn() {
+        Assert.assertTrue(fixturesPage.getBluetooth().matches(BOOLEAN_SELECTOR));
     }
 
     /**
      * Tests to see if the GPS is on
      */
     @Test
-    public void testGPSOn(){
-        Assert.assertTrue(Boolean.parseBoolean(fixturesPage.getGps()));
+    public void testGPSOn() {
+        Assert.assertTrue(fixturesPage.getGps().matches(BOOLEAN_SELECTOR));
     }
 
     /**
      * Tests to see if NFC is on. Fails on devices with no NFC support.
      */
     @Test
-    public void testNFCOn(){
-        Assert.assertTrue(Boolean.parseBoolean(fixturesPage.getNfc()));
+    public void testNFCOn() {
+        Assert.assertTrue(fixturesPage.getNfc().matches(BOOLEAN_SELECTOR));
     }
 }

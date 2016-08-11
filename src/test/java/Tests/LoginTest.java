@@ -26,12 +26,12 @@ import org.testng.annotations.Test;
  * Tests for a login page
  */
 public class LoginTest extends TestBase {
-    private final String LOGIN_SUCCESS_MESSAGE = "You are logged on as admin";
-    private final String LOGIN_FAIL_MESSAGE = "You gave me the wrong username and password";
-    private final String CORRECT_USER_NAME = "admin";
-    private final String CORRECT_PASSWORD = "password";
-    private final String FAIL_USER_NAME = "Wrong User";
-    private final String FAIL_PASSWORD = "12345";
+    private static final String LOGIN_SUCCESS_MESSAGE = "You are logged on as admin";
+    private static final String LOGIN_FAIL_MESSAGE = "You gave me the wrong username and password";
+    private static final String CORRECT_USER_NAME = "admin";
+    private static final String CORRECT_PASSWORD = "password";
+    private static final String FAIL_USER_NAME = "Wrong User";
+    private static final String FAIL_PASSWORD = "12345";
 
     private LoginPage loginPage;
 
@@ -53,7 +53,7 @@ public class LoginTest extends TestBase {
      * Tests logging in with valid credentials by verifying if the login message is correct
      */
     @Test
-    public void loginSuccessFully(){
+    public void loginSuccess() throws InterruptedException {
         loginPage.loginIn(CORRECT_USER_NAME, CORRECT_PASSWORD);
         Assert.assertEquals(loginPage.getMessage(), LOGIN_SUCCESS_MESSAGE);
     }
@@ -62,7 +62,7 @@ public class LoginTest extends TestBase {
      * Tests logging in with invalid credentials by verifying if the error message is correct
      */
     @Test
-    public void loginFail() {
+    public void loginFail() throws InterruptedException {
         loginPage.loginIn(FAIL_USER_NAME, FAIL_PASSWORD);
         Assert.assertEquals(loginPage.getMessage(), LOGIN_FAIL_MESSAGE);
     }
@@ -71,7 +71,7 @@ public class LoginTest extends TestBase {
      * After each test method, logout or try again
      */
     @AfterMethod
-    public void logOut(){
+    public void logOut() {
         loginPage.pressAltButton();
         Assert.assertTrue(loginPage.checkIfBackAtLogin());
     }

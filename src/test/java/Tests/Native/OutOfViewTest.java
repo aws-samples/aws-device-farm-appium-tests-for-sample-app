@@ -48,7 +48,7 @@ public class OutOfViewTest extends NativeTests {
      * displayed.
      */
     @Test
-    public void scrollOutOfView(){
+    public void scrollOutOfView() {
         outOfViewPage.scrollDownToHiddenText();
         Assert.assertTrue(outOfViewPage.isHiddenTextDisplayed());
     }

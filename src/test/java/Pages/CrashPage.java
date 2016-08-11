@@ -18,7 +18,6 @@ package Pages;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
-import org.testng.TestException;
 
 /**
  * A page representing a crash
@@ -28,13 +27,13 @@ public class CrashPage extends BasePage {
     /**
      * The crash button
      */
-    @AndroidFindBy(id = "crash_button")
+    @AndroidFindBy(name = "Crash Button")
     private WebElement crashButton;
 
     /**
      * The crash message
      */
-    @AndroidFindBy(id = "bug_fragment_message")
+    @AndroidFindBy(name = "Unfortunately, ReferenceApp has stopped.")
     private WebElement crashMessage;
 
     public CrashPage(AppiumDriver driver) {

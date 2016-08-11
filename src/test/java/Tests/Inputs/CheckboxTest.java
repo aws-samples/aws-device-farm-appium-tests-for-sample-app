@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
  * Tests the checkbox
  */
 public class CheckboxTest extends InputTests {
-    private final String CHECKED_VALUE = "Checked";
+    private static final String CHECKED_VALUE = "Checked";
 
     /**
      * Checkbox page

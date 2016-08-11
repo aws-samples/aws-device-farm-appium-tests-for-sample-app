@@ -70,14 +70,17 @@ public abstract class TestBase {
      * @throws MalformedURLException An exception that occurs when the URL is wrong
      */
     @BeforeSuite
-    public void setUpAppium() throws MalformedURLException{
+    public void setUpAppium() throws MalformedURLException {
 
         final String URL_STRING = "http://127.0.0.1:4723/wd/hub";
 
         URL url = new URL(URL_STRING);
 
         //Use a empty DesiredCapabilities object
-        driver = new AndroidDriver<MobileElement>(url, new DesiredCapabilities());
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("deviceName", "aPhone");
+
+        driver = new AndroidDriver<MobileElement>(url, capabilities);
 
         //Use a higher value if your mobile elements take time to show up
         driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
@@ -87,7 +90,7 @@ public abstract class TestBase {
      * Always remember to quit
      */
     @AfterSuite
-    public void tearDownAppium(){
+    public void tearDownAppium() {
         driver.quit();
     }
 

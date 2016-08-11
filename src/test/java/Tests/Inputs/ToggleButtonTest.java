@@ -25,7 +25,8 @@ import org.testng.annotations.Test;
  * Tests for a toggle button
  */
 public class ToggleButtonTest extends InputTests {
-    private final String TOGGLE_ACTIVATED_TEXT = "ON";
+    private static final String TOGGLE_ACTIVATED_TEXT = "ON";
+    private static final String TOGGLE_DEACTIVATED_TEXT = "OFF";
 
     private ToggleButtonPage toggleButtonPage;
 
@@ -53,8 +54,10 @@ public class ToggleButtonTest extends InputTests {
      * activated element appears
      */
     @Test
-    public void turnViewOn(){
+    public void testToggle() {
         toggleButtonPage.toggleSwitch();
         Assert.assertEquals(toggleButtonPage.getToggleDisplayStatus(), TOGGLE_ACTIVATED_TEXT);
+        toggleButtonPage.toggleSwitch();
+        Assert.assertEquals(toggleButtonPage.getToggleDisplayStatus(), TOGGLE_DEACTIVATED_TEXT);
     }
 }

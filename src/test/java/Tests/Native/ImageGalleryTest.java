@@ -50,7 +50,7 @@ public class ImageGalleryTest extends NativeTests {
      * Check if the image grid view is displayed
      */
     @Test
-    public void checkIfImageGalleryDisplayed(){
+    public void checkIfImageGalleryDisplayed() {
         Assert.assertTrue(imageGalleryPage.imageGalleryIsDisplayed());
     }
 }

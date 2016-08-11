@@ -27,7 +27,7 @@ public class EditTextPage extends BasePage {
     /**
      * The text input
      */
-    @AndroidFindBy(id = "input_edit_text")
+    @AndroidFindBy(name = "Text Input Control")
     private MobileElement textBox;
 
     public EditTextPage(AppiumDriver driver) {
@@ -39,13 +39,11 @@ public class EditTextPage extends BasePage {
      *
      * @param text to input
      */
-    public void enterText(String text){
+    public void enterText(String text) throws InterruptedException {
+        textBox.click();
+        Thread.sleep(1000);
         textBox.sendKeys(text);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(1000);
     }
 
     /**

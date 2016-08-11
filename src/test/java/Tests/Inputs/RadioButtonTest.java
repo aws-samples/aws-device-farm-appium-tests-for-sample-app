@@ -41,19 +41,19 @@ public class RadioButtonTest extends InputTests {
     }
 
     @Test
-    public void testFirstRadio(){
+    public void testFirstRadio() {
         radioButtonPage.clickRadioButton1();
         Assert.assertEquals(radioButtonPage.getRadioText(), "Amazon");
     }
 
     @Test
-    public void testSecondRadio(){
+    public void testSecondRadio() {
         radioButtonPage.clickRadioButton2();
         Assert.assertEquals(radioButtonPage.getRadioText(), "Web");
     }
 
     @Test
-    public void testThirdRadio(){
+    public void testThirdRadio() {
         radioButtonPage.clickRadioButton3();
         Assert.assertEquals(radioButtonPage.getRadioText(), "Services");
     }

@@ -25,7 +25,6 @@ import org.openqa.selenium.WebElement;
  */
 public class NavigationPage extends BasePage{
 
-    private final String XPATH_CATEGORY_QUERY = "//*[contains(@resource-id,'drawer_row_title') and contains(@text,'%s')]";
     private final int TRIES = 5;
 
     /**
@@ -59,7 +58,7 @@ public class NavigationPage extends BasePage{
                 counter++;
                 if (counter == TRIES)
                     return;
-                categoryElement = driver.findElementByXPath(String.format(XPATH_CATEGORY_QUERY, categoryName));
+                categoryElement = driver.findElementByName(categoryName);
             } catch (NoSuchElementException e) {
                 driver.scrollTo(categoryName);
             }

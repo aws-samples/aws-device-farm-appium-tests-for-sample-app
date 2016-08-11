@@ -28,7 +28,7 @@ public class ContentScrollingPage extends BasePage {
     /**
      * Scroll view
      */
-    @AndroidFindBy(id = "content_scrolling_view")
+    @AndroidFindBy(className = "android.widget.ScrollView")
     private MobileElement scrollView;
 
     public ContentScrollingPage(AppiumDriver driver) {

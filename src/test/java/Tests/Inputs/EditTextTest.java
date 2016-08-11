@@ -24,8 +24,8 @@ import org.testng.annotations.Test;
 /**
  * Tests for a text input
  */
-public class EditText extends InputTests {
-    private final String TEXT_TO_INPUT = "Something";
+public class EditTextTest extends InputTests {
+    private static final String TEXT_TO_INPUT = "Something";
 
     /**
      * A edit text page
@@ -55,7 +55,7 @@ public class EditText extends InputTests {
      * Tests input to the edit text box and then verifies if the text is there
      */
     @Test
-    public void testTextBox(){
+    public void testTextBox() throws InterruptedException {
         editTextPage.enterText(TEXT_TO_INPUT);
         Assert.assertTrue(editTextPage.getTextBoxText().contains(TEXT_TO_INPUT));
     }

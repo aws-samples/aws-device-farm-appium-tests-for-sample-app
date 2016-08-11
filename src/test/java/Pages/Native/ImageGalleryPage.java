@@ -27,7 +27,7 @@ public class ImageGalleryPage extends BasePage {
     /**
      * the image gallery grid view
      */
-    @AndroidFindBy(id = "native_image_grid_view")
+    @AndroidFindBy(className = "android.widget.GridView")
     private MobileElement imageGalley;
 
     public ImageGalleryPage(AppiumDriver driver) {

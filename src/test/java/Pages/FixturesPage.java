@@ -17,35 +17,14 @@ package Pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
+
+import java.util.List;
 
 /**
  * A page representing the fixtures
  */
 public class FixturesPage extends BasePage {
-    /**
-     * wifi value
-     */
-    @AndroidFindBy(id = "wifi")
-    private MobileElement wifi;
-
-    /**
-     * bluetooth value
-     */
-    @AndroidFindBy(id = "bluetooth")
-    private MobileElement bluetooth;
-
-    /**
-     * gps value
-     */
-    @AndroidFindBy(id = "gps")
-    private MobileElement gps;
-
-    /**
-     * nfc value
-     */
-    @AndroidFindBy(id = "nfc")
-    private MobileElement nfc;
+    private static List textViews = null;
 
     public FixturesPage(AppiumDriver driver) {
         super(driver);
@@ -56,7 +35,7 @@ public class FixturesPage extends BasePage {
      * @return wifi status
      */
     public String getWifi() {
-        return wifi.getText();
+        return getStatus("Wifi:");
     }
 
     /**
@@ -64,15 +43,15 @@ public class FixturesPage extends BasePage {
      * @return bluetooth status
      */
     public String getBluetooth() {
-        return bluetooth.getText();
+        return getStatus("Bluetooth:");
     }
 
     /**
      *
-     * @return gps statsu
+     * @return gps status
      */
     public String getGps() {
-        return gps.getText();
+        return getStatus("GPS:");
     }
 
     /**
@@ -80,6 +59,30 @@ public class FixturesPage extends BasePage {
      * @return nfc status
      */
     public String getNfc() {
-        return nfc.getText();
+        return getStatus("NFC:");
+    }
+
+    /**
+     * Helper function to retrieve the status of inputted radio name.
+     *
+     * @param radioName should be followed by a colon, for example: "NFC:"
+     * @return status of radio signal as a String
+     */
+    private String getStatus(String radioName) {
+        if (textViews == null) {
+             textViews = driver.findElementsByClassName("android.widget.TextView");
+        }
+
+        int idx;
+
+        // Retrieve index of desired radio text view
+        for (idx = textViews.size() - 1; idx >= 0; idx--) {
+            if (((MobileElement) textViews.get(idx)).getText().equals(radioName)) {
+                break;
+            }
+        }
+
+        // Desired radio status comes immediately after its name. For example: NFC: true
+        return ((MobileElement) textViews.get(idx + 1)).getText();
     }
 }

@@ -23,22 +23,24 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * A login page
  */
 public class LoginPage extends BasePage {
+    private static final int KEYBOARD_ANIMATION_DELAY = 1000;
+
     /**
      * The login button
      */
-    @AndroidFindBy(id = "login_button")
+    @AndroidFindBy(name = "Login Button")
     private MobileElement loginButton;
 
     /**
      * The user name input
      */
-    @AndroidFindBy(id = "username_text_input")
+    @AndroidFindBy(name = "Username Input Field")
     private MobileElement userNameField;
 
     /**
      * The password input
      */
-    @AndroidFindBy(id = "password_text_input")
+    @AndroidFindBy(name = "Password Input Field")
     private MobileElement passwordField;
 
     public LoginPage(AppiumDriver driver) {
@@ -51,9 +53,15 @@ public class LoginPage extends BasePage {
      * @param userName the username
      * @param password the password
      */
-    public void loginIn(String userName, String password){
+    public void loginIn(String userName, String password) throws InterruptedException {
+        userNameField.click();
+        Thread.sleep(KEYBOARD_ANIMATION_DELAY);
         userNameField.sendKeys(userName);
+
+        passwordField.click();
+        Thread.sleep(KEYBOARD_ANIMATION_DELAY);
         passwordField.sendKeys(password);
+
         loginButton.click();
     }
 
@@ -61,8 +69,8 @@ public class LoginPage extends BasePage {
      *
      * @return the login message
      */
-    public String getMessage(){
-        return driver.findElementById("login_alt_message_textView").getText();
+    public String getMessage() {
+        return driver.findElementById("Alt Message").getText();
     }
 
     /**
@@ -70,14 +78,14 @@ public class LoginPage extends BasePage {
      *
      * @return is back at login
      */
-    public boolean checkIfBackAtLogin(){
+    public boolean checkIfBackAtLogin() {
         return loginButton.isDisplayed() && userNameField.isDisplayed() && passwordField.isDisplayed();
     }
 
     /**
      * Presses the logout/try again button
      */
-    public void pressAltButton(){
-        driver.findElementById("alt_button").click();
+    public void pressAltButton() {
+        driver.findElementById("Alt Button").click();
     }
 }

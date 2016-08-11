@@ -50,7 +50,7 @@ public class ScrollViewTest extends NativeTests {
      * Tests by scrolling down and checking if the scrollview is still displayed
      */
     @Test
-    public void testScroll(){
+    public void testScroll() {
         contentScrollingPage.scrollDown();
         Assert.assertTrue(contentScrollingPage.scrollViewDisplayed());
     }

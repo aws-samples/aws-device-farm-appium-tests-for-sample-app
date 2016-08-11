@@ -25,9 +25,9 @@ import org.testng.annotations.Test;
  * Tests to test a camera preview
  */
 public class CameraTest extends NativeTests {
-    private final String CAMERA_ON_STATUS = "Camera Preview Streaming";
+    private static final String CAMERA_ON_STATUS = "Camera Preview Streaming";
 
-    CameraPage cameraPage;
+    private CameraPage cameraPage;
 
     /**
      * Sets the page view index so it can be navigated to
@@ -50,7 +50,7 @@ public class CameraTest extends NativeTests {
      * indicates that the camera is on and streaming. Fails on devices with no camera support.
      */
     @Test
-    public void testCameraStatus(){
+    public void testCameraStatus() {
         Assert.assertEquals(cameraPage.getCameraStatus(), CAMERA_ON_STATUS);
     }
 }

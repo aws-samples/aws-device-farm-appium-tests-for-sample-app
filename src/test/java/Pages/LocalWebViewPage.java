@@ -54,7 +54,6 @@ public class LocalWebViewPage extends BasePage {
      * @param last last name
      */
     public void enterName(String first, String last){
-
         inputs.get(0).sendKeys(first);
         inputs.get(1).sendKeys(last);
     }

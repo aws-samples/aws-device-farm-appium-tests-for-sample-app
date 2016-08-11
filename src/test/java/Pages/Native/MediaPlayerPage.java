@@ -27,7 +27,7 @@ public class MediaPlayerPage extends BasePage {
     /**
      * The media player
      */
-    @AndroidFindBy(id = "native_video_player")
+    @AndroidFindBy(name = "Content Playing")
     private MobileElement videoView;
 
     public MediaPlayerPage(AppiumDriver driver) {
@@ -38,7 +38,7 @@ public class MediaPlayerPage extends BasePage {
      *
      * @return content description of the media player
      */
-    public String getMediaPlayerStatus(){
+    public String getMediaPlayerStatus() {
         return videoView.getAttribute("name");
     }
 }
