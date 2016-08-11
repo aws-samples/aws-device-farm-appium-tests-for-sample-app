@@ -20,7 +20,7 @@ import Pages.WaitConfig;
 import org.testng.annotations.BeforeClass;
 
 /**
- * This class is a base class for a pageview pased page
+ * This class is a base class for a page view pased page
  */
 public abstract class TabTestBase extends TestBase {
     private TabViewPage tabViewPage;
@@ -44,7 +44,7 @@ public abstract class TabTestBase extends TestBase {
         super.navigateTo();
         tabViewPage = new TabViewPage(driver);
         Thread.sleep(WaitConfig.VIEWPAGE_BEFORE_WAIT);
-        for (int i = 0; i<pageIndex(); i++) {
+        for (int i = 0; i < pageIndex(); i++) {
             tabViewPage.turnPageLeft();
             Thread.sleep(WaitConfig.VIEWPAGE_BEFORE_AFTER);
         }

@@ -21,9 +21,9 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.Dimension;
 
 public class TabViewPage extends BasePage{
-    private final double START_OFFSET = 0.9;
-    private final double END_OFFSET = 0.05;
-    private final int SWIPE_DURATION = 1000;
+    private static final double START_OFFSET = 0.95;
+    private static final double END_OFFSET = 0.05;
+    private static final int SWIPE_DURATION = 1000;
 
     @AndroidFindBy(id = "container_body")
     private MobileElement tabViewContainer;
@@ -33,11 +33,11 @@ public class TabViewPage extends BasePage{
         super(driver);
     }
 
-    public void turnPageLeft(){
+    public void turnPageLeft() {
         Dimension size = driver.manage().window().getSize();
-        int startx = (int) (size.width * START_OFFSET);
-        int endx = (int) (size.width * END_OFFSET);
-        int starty = size.height / 2;
-        driver.swipe(startx, starty, endx, starty, SWIPE_DURATION);
+        int startX = (int) (size.width * START_OFFSET);
+        int endX = (int) (size.width * END_OFFSET);
+        int startY = size.height / 4;
+        driver.swipe(startX, startY, endX, startY, SWIPE_DURATION);
     }
 }
