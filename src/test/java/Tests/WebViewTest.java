@@ -26,6 +26,7 @@ import org.testng.annotations.Test;
  */
 public class WebViewTest extends TestBase {
     private static final String FULL_URL = "http://docs.aws.amazon.com";
+    private static final String BAD_INTERNET_CONNECTION_MSG = "Bad internet connection or hybrid view is bugged on this device (6.x)";
     private static final String BAD_URL_ENTRY_MSG = "Url was not sent to navigation bar properly";
     private WebViewPage webViewPage;
 
@@ -50,6 +51,6 @@ public class WebViewTest extends TestBase {
     @Test
     public void testWebView() throws InterruptedException {
         Assert.assertTrue(webViewPage.goToUrl(FULL_URL), BAD_URL_ENTRY_MSG);
-        Assert.assertTrue(webViewPage.webDescriptionIsLoaded());
+        Assert.assertTrue(webViewPage.webDescriptionIsLoaded(), BAD_INTERNET_CONNECTION_MSG);
     }
 }
