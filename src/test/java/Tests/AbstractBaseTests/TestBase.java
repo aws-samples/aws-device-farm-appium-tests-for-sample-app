@@ -78,7 +78,6 @@ public abstract class TestBase {
 
         //Use a empty DesiredCapabilities object
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("deviceName", "aPhone");
 
         driver = new AndroidDriver<MobileElement>(url, capabilities);
 
