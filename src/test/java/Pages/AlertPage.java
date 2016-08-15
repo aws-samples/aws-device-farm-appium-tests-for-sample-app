@@ -45,14 +45,14 @@ public class AlertPage extends BasePage {
      * Toast isn't directly supported by Appium. The recommended way is to
      * take a screen shot and use a OCR program to read the toast content
      */
-    public void clickToastButton(){
+    public void clickToastButton() {
         toastButton.click();
     }
 
     /**
      * clicks the alert button
      */
-    public void clickAlertsButton(){
+    public void clickAlertsButton() {
         alertButton.click();
     }
 
@@ -60,7 +60,7 @@ public class AlertPage extends BasePage {
      *
      * @return the message within the alert
      */
-    public String getAlertText(){
+    public String getAlertText() {
         MobileElement alertMessage = (MobileElement) driver.findElementsByClassName("android.widget.TextView").get(1);
         return alertMessage.getText();
     }
@@ -68,7 +68,7 @@ public class AlertPage extends BasePage {
     /**
      * accepts the alert
      */
-    public void acceptAlertMessage(){
+    public void acceptAlertMessage() {
         MobileElement alertOkButton = (MobileElement) driver.findElementsByClassName("android.widget.Button").get(0);
         alertOkButton.click();
     }

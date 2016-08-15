@@ -70,7 +70,8 @@ public class FixturesPage extends BasePage {
      */
     private String getStatus(String radioName) {
         if (textViews == null) {
-             textViews = driver.findElementsByClassName("android.widget.TextView");
+            driver.scrollTo(radioName);
+            textViews = driver.findElementsByClassName("android.widget.TextView");
         }
 
         int idx;

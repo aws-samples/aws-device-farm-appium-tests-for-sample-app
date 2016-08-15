@@ -52,17 +52,21 @@ public class LocalWebViewPage extends BasePage {
      *
      * @param first first name
      * @param last last name
+     *
+     * @return true if names entered in correctly, else false.
      */
-    public void enterName(String first, String last){
-        inputs.get(0).sendKeys(first);
-        inputs.get(1).sendKeys(last);
+    public boolean enterName(String first, String last) throws InterruptedException {
+        boolean firstNameStatus = sendKeysToElement(first, inputs.get(0), false);
+        boolean lastNameStatus = sendKeysToElement(last, inputs.get(1), false);
+
+        return firstNameStatus && lastNameStatus;
     }
 
     /**
      *
      * @return full name text
      */
-    public String getFullName(){
+    public String getFullName() {
         return output.get(output.size()-1).getAttribute("content-desc").split("Hello!")[1];
     }
 }

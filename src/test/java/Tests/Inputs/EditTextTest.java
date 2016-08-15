@@ -26,6 +26,7 @@ import org.testng.annotations.Test;
  */
 public class EditTextTest extends InputTests {
     private static final String TEXT_TO_INPUT = "Something";
+    private static final String TEXT_ENTRY_ERROR_MSG = "Text was not entered properly";
 
     /**
      * A edit text page
@@ -56,7 +57,7 @@ public class EditTextTest extends InputTests {
      */
     @Test
     public void testTextBox() throws InterruptedException {
-        editTextPage.enterText(TEXT_TO_INPUT);
+        Assert.assertTrue(editTextPage.enterText(TEXT_TO_INPUT), TEXT_ENTRY_ERROR_MSG);
         Assert.assertTrue(editTextPage.getTextBoxText().contains(TEXT_TO_INPUT));
     }
 }

@@ -26,7 +26,7 @@ import org.testng.annotations.Test;
  */
 public class WebViewTest extends TestBase {
     private static final String FULL_URL = "http://docs.aws.amazon.com";
-
+    private static final String BAD_URL_ENTRY_MSG = "Url was not sent to navigation bar properly";
     private WebViewPage webViewPage;
 
     @Override
@@ -49,7 +49,7 @@ public class WebViewTest extends TestBase {
      */
     @Test
     public void testWebView() throws InterruptedException {
-        webViewPage.gotoUrl(FULL_URL);
-        Assert.assertTrue(webViewPage.getWebDescription());
+        Assert.assertTrue(webViewPage.goToUrl(FULL_URL), BAD_URL_ENTRY_MSG);
+        Assert.assertTrue(webViewPage.webDescriptionIsLoaded());
     }
 }

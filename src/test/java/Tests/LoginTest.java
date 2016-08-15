@@ -32,6 +32,7 @@ public class LoginTest extends TestBase {
     private static final String CORRECT_PASSWORD = "password";
     private static final String FAIL_USER_NAME = "Wrong User";
     private static final String FAIL_PASSWORD = "12345";
+    private static final String BAD_TEXT_ENTRY_MSG = "Username sent to text field incorrectly";
 
     private LoginPage loginPage;
 
@@ -54,7 +55,7 @@ public class LoginTest extends TestBase {
      */
     @Test
     public void loginSuccess() throws InterruptedException {
-        loginPage.loginIn(CORRECT_USER_NAME, CORRECT_PASSWORD);
+        Assert.assertTrue(loginPage.login(CORRECT_USER_NAME, CORRECT_PASSWORD), BAD_TEXT_ENTRY_MSG);
         Assert.assertEquals(loginPage.getMessage(), LOGIN_SUCCESS_MESSAGE);
     }
 
@@ -63,7 +64,7 @@ public class LoginTest extends TestBase {
      */
     @Test
     public void loginFail() throws InterruptedException {
-        loginPage.loginIn(FAIL_USER_NAME, FAIL_PASSWORD);
+        Assert.assertTrue(loginPage.login(FAIL_USER_NAME, FAIL_PASSWORD), BAD_TEXT_ENTRY_MSG);
         Assert.assertEquals(loginPage.getMessage(), LOGIN_FAIL_MESSAGE);
     }
 

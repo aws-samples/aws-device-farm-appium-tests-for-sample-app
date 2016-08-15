@@ -30,7 +30,7 @@ public class NavigationPage extends BasePage{
     /**
      * Get the toggle button
      */
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"ReferenceApp\")")
+    @AndroidFindBy(name = "ReferenceApp")
     private WebElement toggle;
 
     public NavigationPage(AppiumDriver driver) {

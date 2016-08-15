@@ -35,7 +35,7 @@ public class LoginPage extends BasePage {
      * The user name input
      */
     @AndroidFindBy(name = "Username Input Field")
-    private MobileElement userNameField;
+    private MobileElement usernameField;
 
     /**
      * The password input
@@ -50,19 +50,21 @@ public class LoginPage extends BasePage {
     /**
      * Tries to login with a set of credentials
      *
-     * @param userName the username
+     * @param username the username
      * @param password the password
+     *
+     * @return true if username was entered in correctly, else false.
      */
-    public void loginIn(String userName, String password) throws InterruptedException {
-        userNameField.click();
-        Thread.sleep(KEYBOARD_ANIMATION_DELAY);
-        userNameField.sendKeys(userName);
+    public boolean login(String username, String password) throws InterruptedException {
+        boolean usernameStatus = sendKeysToElement(username, usernameField, false);
 
         passwordField.click();
         Thread.sleep(KEYBOARD_ANIMATION_DELAY);
         passwordField.sendKeys(password);
 
         loginButton.click();
+
+        return usernameStatus;
     }
 
     /**
@@ -79,7 +81,7 @@ public class LoginPage extends BasePage {
      * @return is back at login
      */
     public boolean checkIfBackAtLogin() {
-        return loginButton.isDisplayed() && userNameField.isDisplayed() && passwordField.isDisplayed();
+        return loginButton.isDisplayed() && usernameField.isDisplayed() && passwordField.isDisplayed();
     }
 
     /**

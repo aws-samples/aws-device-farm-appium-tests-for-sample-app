@@ -38,12 +38,11 @@ public class EditTextPage extends BasePage {
      * Input text
      *
      * @param text to input
+     *
+     * @return true, if text properly entered, else false.
      */
-    public void enterText(String text) throws InterruptedException {
-        textBox.click();
-        Thread.sleep(1000);
-        textBox.sendKeys(text);
-        Thread.sleep(1000);
+    public boolean enterText(String text) throws InterruptedException {
+        return sendKeysToElement(text, textBox, false);
     }
 
     /**
