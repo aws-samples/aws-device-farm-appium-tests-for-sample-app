@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import java.util.List;
  * A page representing the fixtures
  */
 public class FixturesPage extends BasePage {
-    private static List textViews = null;
 
     public FixturesPage(AppiumDriver driver) {
         super(driver);
@@ -69,10 +68,8 @@ public class FixturesPage extends BasePage {
      * @return status of radio signal as a String
      */
     private String getStatus(String radioName) {
-        if (textViews == null) {
-            driver.scrollTo(radioName);
-            textViews = driver.findElementsByClassName("android.widget.TextView");
-        }
+        driver.scrollTo(radioName);
+        List textViews = driver.findElementsByClassName("android.widget.TextView");
 
         int idx;
 
