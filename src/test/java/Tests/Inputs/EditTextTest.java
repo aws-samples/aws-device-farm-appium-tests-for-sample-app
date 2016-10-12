@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,8 +24,9 @@ import org.testng.annotations.Test;
 /**
  * Tests for a text input
  */
-public class EditText extends InputTests {
-    private final String TEXT_TO_INPUT = "Something";
+public class EditTextTest extends InputTests {
+    private static final String TEXT_TO_INPUT = "Something";
+    private static final String TEXT_ENTRY_ERROR_MSG = "Text was not entered properly";
 
     /**
      * A edit text page
@@ -55,8 +56,8 @@ public class EditText extends InputTests {
      * Tests input to the edit text box and then verifies if the text is there
      */
     @Test
-    public void testTextBox(){
-        editTextPage.enterText(TEXT_TO_INPUT);
+    public void testTextBox() throws InterruptedException {
+        Assert.assertTrue(editTextPage.enterText(TEXT_TO_INPUT), TEXT_ENTRY_ERROR_MSG);
         Assert.assertTrue(editTextPage.getTextBoxText().contains(TEXT_TO_INPUT));
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,23 +22,23 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class RadioButtonPage extends BasePage {
 
-    @AndroidFindBy(id = "radio_button_1")
+    @AndroidFindBy(name = "Radio Button 1")
     private MobileElement radioButton1;
 
-    @AndroidFindBy(id = "radio_button_2")
+    @AndroidFindBy(name = "Radio Button 2")
     private MobileElement radioButton2;
 
-    @AndroidFindBy(id = "radio_button_3")
+    @AndroidFindBy(name = "Radio Button 3")
     private MobileElement radioButton3;
 
-    @AndroidFindBy(id = "input_radio_button_display")
+    @AndroidFindBy(name = "Radio Button Display")
     private MobileElement radioText;
 
     public RadioButtonPage(AppiumDriver driver) {
         super(driver);
     }
 
-    public String getRadioText(){
+    public String getRadioText() {
         return radioText.getText();
     }
 

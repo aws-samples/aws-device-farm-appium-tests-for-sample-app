@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ public class OutOfViewTest extends NativeTests {
      * displayed.
      */
     @Test
-    public void scrollOutOfView(){
+    public void scrollOutOfView() {
         outOfViewPage.scrollDownToHiddenText();
         Assert.assertTrue(outOfViewPage.isHiddenTextDisplayed());
     }

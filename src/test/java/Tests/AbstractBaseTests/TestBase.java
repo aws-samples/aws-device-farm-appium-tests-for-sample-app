@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -70,14 +70,16 @@ public abstract class TestBase {
      * @throws MalformedURLException An exception that occurs when the URL is wrong
      */
     @BeforeSuite
-    public void setUpAppium() throws MalformedURLException{
+    public void setUpAppium() throws MalformedURLException {
 
         final String URL_STRING = "http://127.0.0.1:4723/wd/hub";
 
         URL url = new URL(URL_STRING);
 
         //Use a empty DesiredCapabilities object
-        driver = new AndroidDriver<MobileElement>(url, new DesiredCapabilities());
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        driver = new AndroidDriver<MobileElement>(url, capabilities);
 
         //Use a higher value if your mobile elements take time to show up
         driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
@@ -87,7 +89,7 @@ public abstract class TestBase {
      * Always remember to quit
      */
     @AfterSuite
-    public void tearDownAppium(){
+    public void tearDownAppium() {
         driver.quit();
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@ import org.testng.annotations.Test;
  * Tests for Gestures
  */
 public class GesturesTest extends InputTests {
-    private final String FLING_COMMAND = "Fling";
-    private final String LONG_COMMAND = "Long Press";
-    private final String SINGLE_TAP_COMMAND = "Single tap confirmed";
+    private static final String FLING_COMMAND = "Fling";
+    private static final String LONG_COMMAND = "Long Press";
+    private static final String SINGLE_TAP_COMMAND = "Single tap confirmed";
 
     private GesturesPage gesturesPage;
 
@@ -52,30 +52,30 @@ public class GesturesTest extends InputTests {
 
     /**
      * Performs a fling and verifies if the action was registered
-     * by checking if it's command name is shown.
+     * by checking if its command name is shown.
      */
     @Test
-    public void testFling(){
+    public void testFling() {
         gesturesPage.flingGesture();
         Assert.assertEquals(gesturesPage.getLastAction(), FLING_COMMAND);
     }
 
     /**
      * Performs a long press and verifies if the action was registered
-     * by checking if it's command name is shown.
+     * by checking if its command name is shown.
      */
     @Test
-    public void testLongPress(){
+    public void testLongPress() {
         gesturesPage.longPress();
         Assert.assertEquals(gesturesPage.getLastAction(), LONG_COMMAND);
     }
 
     /**
      * Performs a single press and verifies if the action was registered
-     * by checking if it's command name is shown.
+     * by checking if its command name is shown.
      */
     @Test
-    public void testSinglePress(){
+    public void testSinglePress() {
         gesturesPage.singlePress();
         Assert.assertEquals(gesturesPage.getLastAction(), SINGLE_TAP_COMMAND);
     }

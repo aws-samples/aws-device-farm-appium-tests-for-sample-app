@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,6 +19,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
+import java.util.List;
+
 /**
  * Nested Views Page
  */
@@ -26,13 +28,13 @@ public class NestedViewsPage extends BasePage {
     /**
      * Up option button
      */
-    @AndroidFindBy(id = "nested_up_button")
+    @AndroidFindBy(name = "UP NAVIGATION")
     private MobileElement upButton;
 
     /**
      * Back option button
      */
-    @AndroidFindBy(id = "nested_back_button")
+    @AndroidFindBy(name = "BACK NAVIGATION")
     private MobileElement backButton;
 
     public NestedViewsPage(AppiumDriver driver) {
@@ -42,14 +44,14 @@ public class NestedViewsPage extends BasePage {
     /**
      * Press the back button category
      */
-    public void pressBackButtonCategory(){
+    public void pressBackButtonCategory() {
         backButton.click();
     }
 
     /**
      * Press the up button category
      */
-    public void pressUpButtonCategory(){
+    public void pressUpButtonCategory() {
         upButton.click();
     }
 
@@ -58,35 +60,36 @@ public class NestedViewsPage extends BasePage {
      * @return up message text
      */
     public String getUpMessage() {
-        return driver.findElementById("up_navigation_content_text").getText();
+        List textViews = driver.findElementsByClassName("android.widget.TextView");
+        return ((MobileElement) textViews.get(textViews.size() - 1)).getText();
     }
 
     /**
      * Presses the next button
      */
     public void pressNextUpButton() {
-        driver.findElementById("nested_up_button").click();
+        driver.findElementByName("NEXT LEVEL").click();
     }
 
     /**
      * Presses the up button in the toolbar
      */
     public void navigateUp() {
-        driver.findElementByXPath("//*[contains(@content-desc,'Navigate up')]").click();
+        driver.findElementByName("Navigate up").click();
     }
 
     /**
      * Presses the back button
      */
-    public void pressBackButton(){
+    public void pressBackButton() {
         driver.navigate().back();
     }
 
     /**
      * Presses the next button
      */
-    public void pressNextBackButton(){
-        driver.findElementById("back_navigation_next_button").click();
+    public void pressNextBackButton() {
+        driver.findElementByName("NEXT LEVEL").click();
     }
 
     /**
@@ -94,6 +97,6 @@ public class NestedViewsPage extends BasePage {
      * @return the counter text
      */
     public String getCounter() {
-        return driver.findElementById("back_navigation_counter").getText();
+        return driver.findElementByName("Level Display").getText();
     }
 }

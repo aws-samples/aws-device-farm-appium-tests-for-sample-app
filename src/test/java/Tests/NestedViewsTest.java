@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -27,13 +27,13 @@ import org.testng.annotations.Test;
  */
 public class NestedViewsTest extends TestBase {
     private NestedViewsPage nestedViewsPage;
-    private final String UP_MESSAGE_1 = "Press to go to the next level";
-    private final String UP_MESSAGE_2 = "Final Level";
+    private static final String UP_MESSAGE_1 = "Press to go to the next level";
+    private static final String UP_MESSAGE_2 = "Final Level";
 
-    private final int NUMBER_NEXT_BACK_BUTTON = 8;
-    private final int NUMBER_BACK_BUTTON = 6;
-    private final String NEXT_BACK_BUTTON_COUNTER_BEFORE = "9";
-    private final String NEXT_BACK_BUTTON_COUNTER_AFTER = "3";
+    private static final int NUMBER_NEXT_BACK_BUTTON = 8;
+    private static final int NUMBER_BACK_BUTTON = 6;
+    private static final String NEXT_BACK_BUTTON_COUNTER_BEFORE = "9";
+    private static final String NEXT_BACK_BUTTON_COUNTER_AFTER = "3";
 
     @Override
     public String getName() {
@@ -52,7 +52,7 @@ public class NestedViewsTest extends TestBase {
      * the difference
      */
     @Test
-    public void testBackButton(){
+    public void testBackButton() {
         nestedViewsPage.pressBackButtonCategory();
 
         for (int i = 0; i < NUMBER_NEXT_BACK_BUTTON; i++) {
@@ -72,7 +72,7 @@ public class NestedViewsTest extends TestBase {
      * Tests the up button by going up
      */
     @Test
-    public void testUpButton(){
+    public void testUpButton() {
         nestedViewsPage.pressUpButtonCategory();
 
         Assert.assertEquals(nestedViewsPage.getUpMessage(), UP_MESSAGE_1);
@@ -90,7 +90,7 @@ public class NestedViewsTest extends TestBase {
      * Navigate up to reset the test
      */
     @AfterMethod
-    public void goBackToMenu(){
+    public void goBackToMenu() {
         nestedViewsPage.navigateUp();
     }
 }

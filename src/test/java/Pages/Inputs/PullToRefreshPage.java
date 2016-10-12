@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,9 +19,7 @@ import Pages.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.SwipeElementDirection;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.openqa.selenium.WebElement;
 
 /**
  * A page for a pull to refresh control
@@ -31,13 +29,13 @@ public class PullToRefreshPage extends BasePage
     /**
      * The scrollview
      */
-    @AndroidFindBy(id = "input_refresh_scrollview")
+    @AndroidFindBy(className = "android.widget.ScrollView")
     private MobileElement scrollView;
 
     /**
      * The display
      */
-    @AndroidFindBy(id = "input_refresh_display")
+    @AndroidFindBy(name = "Refresh Display")
     private MobileElement display;
 
     public PullToRefreshPage(AppiumDriver driver) {
@@ -48,7 +46,9 @@ public class PullToRefreshPage extends BasePage
      * Pulls down to refresh
      */
     public void pullToRefresh() {
-        scrollView.swipe(SwipeElementDirection.DOWN, 10, 10, 100);
+        try {
+            scrollView.swipe(SwipeElementDirection.DOWN, 10, 10, 100);
+        } catch (Exception e) {} // Catch "The swipe did not complete successfully" error
     }
 
     /**

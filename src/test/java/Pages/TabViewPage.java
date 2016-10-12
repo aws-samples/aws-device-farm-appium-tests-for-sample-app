@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,15 +17,17 @@ package Pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.SwipeElementDirection;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
 
 public class TabViewPage extends BasePage{
-    private final double START_OFFSET = 0.9;
-    private final double END_OFFSET = 0.05;
-    private final int SWIPE_DURATION = 1000;
+    private static final double START_OFFSET = 0.95;
+    private static final double END_OFFSET = 0.05;
+    private static final int SWIPE_DURATION = 1000;
+    private static final int ALERT_POP_UP_DELAY = 1000;
+    private static final String BAD_VIDEO_TEXT = "Can't play this video.";
+    private static final String OK_BUTTON_NAME = "OK";
 
     @AndroidFindBy(id = "container_body")
     private MobileElement tabViewContainer;
@@ -35,11 +37,22 @@ public class TabViewPage extends BasePage{
         super(driver);
     }
 
-    public void turnPageLeft(){
+    public void turnPageLeft() throws InterruptedException {
         Dimension size = driver.manage().window().getSize();
-        int startx = (int) (size.width * START_OFFSET);
-        int endx = (int) (size.width * END_OFFSET);
-        int starty = size.height / 2;
-        driver.swipe(startx, starty, endx, starty, SWIPE_DURATION);
+        int startX = (int) (size.width * START_OFFSET);
+        int endX = (int) (size.width * END_OFFSET);
+        int startY = size.height / 4;
+        driver.swipe(startX, startY, endX, startY, SWIPE_DURATION);
+
+        acceptBadVideoAlert();
+    }
+
+    private void acceptBadVideoAlert() throws InterruptedException {
+        Thread.sleep(ALERT_POP_UP_DELAY);
+
+        if (!driver.findElementsByName(BAD_VIDEO_TEXT).isEmpty()) {
+            WebElement okButton = driver.findElementByName(OK_BUTTON_NAME);
+            okButton.click();
+        }
     }
 }

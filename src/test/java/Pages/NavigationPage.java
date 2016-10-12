@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,13 +25,12 @@ import org.openqa.selenium.WebElement;
  */
 public class NavigationPage extends BasePage{
 
-    private final String XPATH_CATEGORY_QUERY = "//*[contains(@resource-id,'drawer_row_title') and contains(@text,'%s')]";
     private final int TRIES = 5;
 
     /**
      * Get the toggle button
      */
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"ReferenceApp\")")
+    @AndroidFindBy(name = "ReferenceApp")
     private WebElement toggle;
 
     public NavigationPage(AppiumDriver driver) {
@@ -59,7 +58,7 @@ public class NavigationPage extends BasePage{
                 counter++;
                 if (counter == TRIES)
                     return;
-                categoryElement = driver.findElementByXPath(String.format(XPATH_CATEGORY_QUERY, categoryName));
+                categoryElement = driver.findElementByName(categoryName);
             } catch (NoSuchElementException e) {
                 driver.scrollTo(categoryName);
             }

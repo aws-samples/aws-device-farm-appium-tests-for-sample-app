@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ public class EditTextPage extends BasePage {
     /**
      * The text input
      */
-    @AndroidFindBy(id = "input_edit_text")
+    @AndroidFindBy(name = "Text Input Control")
     private MobileElement textBox;
 
     public EditTextPage(AppiumDriver driver) {
@@ -38,14 +38,11 @@ public class EditTextPage extends BasePage {
      * Input text
      *
      * @param text to input
+     *
+     * @return true, if text properly entered, else false.
      */
-    public void enterText(String text){
-        textBox.sendKeys(text);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public boolean enterText(String text) throws InterruptedException {
+        return sendKeysToElement(text, textBox, false);
     }
 
     /**

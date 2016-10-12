@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -35,13 +35,13 @@ public class SpinnerPage extends BasePage{
     /**
      * The spinner control
      */
-    @AndroidFindBy(id = "input_spinner")
+    @AndroidFindBy(name = "Spinner Control")
     private MobileElement spinner;
 
     /**
      * The text display
      */
-    @AndroidFindBy(id = "input_spinner_message")
+    @AndroidFindBy(name = "Spinner Display")
     private MobileElement display;
 
     public SpinnerPage(AppiumDriver driver) {

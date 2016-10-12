@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,12 +18,11 @@ package Tests.AbstractBaseTests;
 import Pages.TabViewPage;
 import Pages.WaitConfig;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 
 /**
- * This class is a base class for a pageview pased page
+ * This class is a base class for a page view pased page
  */
-public abstract class TabTestBase extends TestBase{
+public abstract class TabTestBase extends TestBase {
     private TabViewPage tabViewPage;
 
     /**
@@ -45,7 +44,7 @@ public abstract class TabTestBase extends TestBase{
         super.navigateTo();
         tabViewPage = new TabViewPage(driver);
         Thread.sleep(WaitConfig.VIEWPAGE_BEFORE_WAIT);
-        for (int i = 0; i<pageIndex(); i++) {
+        for (int i = 0; i < pageIndex(); i++) {
             tabViewPage.turnPageLeft();
             Thread.sleep(WaitConfig.VIEWPAGE_BEFORE_AFTER);
         }

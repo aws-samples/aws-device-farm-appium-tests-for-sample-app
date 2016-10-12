@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
  * Tests for media player
  */
 public class MediaPlayerTest extends NativeTests {
-    private final String MEDIA_PLAYER_CONTENT_DESCRIPTION = "Content Playing";
+    private static final String MEDIA_PLAYER_CONTENT_DESCRIPTION = "Content Playing";
     private MediaPlayerPage mediaPlayerPage;
 
     /**
@@ -51,7 +51,7 @@ public class MediaPlayerTest extends NativeTests {
      * Test if the media player's content description is playing
      */
     @Test
-    public void testIfMediaPlayerIsPlaying(){
+    public void testIfMediaPlayerIsPlaying() {
         Assert.assertEquals(mediaPlayerPage.getMediaPlayerStatus(), MEDIA_PLAYER_CONTENT_DESCRIPTION);
     }
 }

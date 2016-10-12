@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
  * Tests for alert page
  */
 public class AlertPageTest extends TestBase {
-    private final String ALERT_MESSAGE = "This is the alert message";
+    private static final String ALERT_MESSAGE = "This is the alert message";
     private AlertPage alertPage;
 
     @Override

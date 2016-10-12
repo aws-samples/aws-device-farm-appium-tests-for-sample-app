@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -26,12 +26,13 @@ import org.testng.annotations.Test;
  * Tests for a login page
  */
 public class LoginTest extends TestBase {
-    private final String LOGIN_SUCCESS_MESSAGE = "You are logged on as admin";
-    private final String LOGIN_FAIL_MESSAGE = "You gave me the wrong username and password";
-    private final String CORRECT_USER_NAME = "admin";
-    private final String CORRECT_PASSWORD = "password";
-    private final String FAIL_USER_NAME = "Wrong User";
-    private final String FAIL_PASSWORD = "12345";
+    private static final String LOGIN_SUCCESS_MESSAGE = "You are logged on as admin";
+    private static final String LOGIN_FAIL_MESSAGE = "You gave me the wrong username and password";
+    private static final String CORRECT_USER_NAME = "admin";
+    private static final String CORRECT_PASSWORD = "password";
+    private static final String FAIL_USER_NAME = "Wrong User";
+    private static final String FAIL_PASSWORD = "12345";
+    private static final String BAD_TEXT_ENTRY_MSG = "Username sent to text field incorrectly";
 
     private LoginPage loginPage;
 
@@ -53,8 +54,8 @@ public class LoginTest extends TestBase {
      * Tests logging in with valid credentials by verifying if the login message is correct
      */
     @Test
-    public void loginSuccessFully(){
-        loginPage.loginIn(CORRECT_USER_NAME, CORRECT_PASSWORD);
+    public void loginSuccess() throws InterruptedException {
+        Assert.assertTrue(loginPage.login(CORRECT_USER_NAME, CORRECT_PASSWORD), BAD_TEXT_ENTRY_MSG);
         Assert.assertEquals(loginPage.getMessage(), LOGIN_SUCCESS_MESSAGE);
     }
 
@@ -62,8 +63,8 @@ public class LoginTest extends TestBase {
      * Tests logging in with invalid credentials by verifying if the error message is correct
      */
     @Test
-    public void loginFail() {
-        loginPage.loginIn(FAIL_USER_NAME, FAIL_PASSWORD);
+    public void loginFail() throws InterruptedException {
+        Assert.assertTrue(loginPage.login(FAIL_USER_NAME, FAIL_PASSWORD), BAD_TEXT_ENTRY_MSG);
         Assert.assertEquals(loginPage.getMessage(), LOGIN_FAIL_MESSAGE);
     }
 
@@ -71,7 +72,7 @@ public class LoginTest extends TestBase {
      * After each test method, logout or try again
      */
     @AfterMethod
-    public void logOut(){
+    public void logOut() {
         loginPage.pressAltButton();
         Assert.assertTrue(loginPage.checkIfBackAtLogin());
     }

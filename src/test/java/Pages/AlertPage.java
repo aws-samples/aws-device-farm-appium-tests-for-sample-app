@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,9 +17,7 @@ package Pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.openqa.selenium.Alert;
 
 /**
  * A page for alerts
@@ -28,13 +26,13 @@ public class AlertPage extends BasePage {
     /**
      * The alert button
      */
-    @AndroidFindBy(id = "notifications_alert_button")
+    @AndroidFindBy(name = "ALERT")
     private MobileElement alertButton;
 
     /**
      * The toast button
      */
-    @AndroidFindBy(id = "notifications_toast_button")
+    @AndroidFindBy(name = "TOAST")
     private MobileElement toastButton;
 
     public AlertPage(AppiumDriver driver) {
@@ -45,14 +43,14 @@ public class AlertPage extends BasePage {
      * Toast isn't directly supported by Appium. The recommended way is to
      * take a screen shot and use a OCR program to read the toast content
      */
-    public void clickToastButton(){
+    public void clickToastButton() {
         toastButton.click();
     }
 
     /**
      * clicks the alert button
      */
-    public void clickAlertsButton(){
+    public void clickAlertsButton() {
         alertButton.click();
     }
 
@@ -60,7 +58,7 @@ public class AlertPage extends BasePage {
      *
      * @return the message within the alert
      */
-    public String getAlertText(){
+    public String getAlertText() {
         MobileElement alertMessage = (MobileElement) driver.findElementsByClassName("android.widget.TextView").get(1);
         return alertMessage.getText();
     }
@@ -68,7 +66,7 @@ public class AlertPage extends BasePage {
     /**
      * accepts the alert
      */
-    public void acceptAlertMessage(){
+    public void acceptAlertMessage() {
         MobileElement alertOkButton = (MobileElement) driver.findElementsByClassName("android.widget.Button").get(0);
         alertOkButton.click();
     }

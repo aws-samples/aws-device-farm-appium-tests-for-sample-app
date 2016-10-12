@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@ import org.testng.annotations.Test;
  * Tests for homepage
  */
 public class HomePageTest extends TestBase {
-    private final String HOMEPAGE_HEADLINE = "AWS Device Farm Sample App for Android";
-    private final String HOMEPAGE_SUBHEADER = "version 1";
+    private static final String HOMEPAGE_HEADLINE = "AWS Device Farm Sample App for Android";
+    private static final String HOMEPAGE_SUBHEADER = "version 1";
 
     private HomePage homePageTest;
 
@@ -35,7 +35,7 @@ public class HomePageTest extends TestBase {
      */
     @BeforeTest
     @Override
-    public void setUpPage(){
+    public void setUpPage() {
         homePageTest = new HomePage(driver);
     }
 

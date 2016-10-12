@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,22 +23,24 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * A login page
  */
 public class LoginPage extends BasePage {
+    private static final int KEYBOARD_ANIMATION_DELAY = 1000;
+
     /**
      * The login button
      */
-    @AndroidFindBy(id = "login_button")
+    @AndroidFindBy(name = "Login Button")
     private MobileElement loginButton;
 
     /**
      * The user name input
      */
-    @AndroidFindBy(id = "username_text_input")
-    private MobileElement userNameField;
+    @AndroidFindBy(name = "Username Input Field")
+    private MobileElement usernameField;
 
     /**
      * The password input
      */
-    @AndroidFindBy(id = "password_text_input")
+    @AndroidFindBy(name = "Password Input Field")
     private MobileElement passwordField;
 
     public LoginPage(AppiumDriver driver) {
@@ -48,21 +50,29 @@ public class LoginPage extends BasePage {
     /**
      * Tries to login with a set of credentials
      *
-     * @param userName the username
+     * @param username the username
      * @param password the password
+     *
+     * @return true if username was entered in correctly, else false.
      */
-    public void loginIn(String userName, String password){
-        userNameField.sendKeys(userName);
+    public boolean login(String username, String password) throws InterruptedException {
+        boolean usernameStatus = sendKeysToElement(username, usernameField, false);
+
+        passwordField.click();
+        Thread.sleep(KEYBOARD_ANIMATION_DELAY);
         passwordField.sendKeys(password);
+
         loginButton.click();
+
+        return usernameStatus;
     }
 
     /**
      *
      * @return the login message
      */
-    public String getMessage(){
-        return driver.findElementById("login_alt_message_textView").getText();
+    public String getMessage() {
+        return driver.findElementById("Alt Message").getText();
     }
 
     /**
@@ -70,14 +80,14 @@ public class LoginPage extends BasePage {
      *
      * @return is back at login
      */
-    public boolean checkIfBackAtLogin(){
-        return loginButton.isDisplayed() && userNameField.isDisplayed() && passwordField.isDisplayed();
+    public boolean checkIfBackAtLogin() {
+        return loginButton.isDisplayed() && usernameField.isDisplayed() && passwordField.isDisplayed();
     }
 
     /**
      * Presses the logout/try again button
      */
-    public void pressAltButton(){
-        driver.findElementById("alt_button").click();
+    public void pressAltButton() {
+        driver.findElementById("Alt Button").click();
     }
 }

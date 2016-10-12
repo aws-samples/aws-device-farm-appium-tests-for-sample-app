@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2066 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ public class ContentScrollingPage extends BasePage {
     /**
      * Scroll view
      */
-    @AndroidFindBy(id = "content_scrolling_view")
+    @AndroidFindBy(className = "android.widget.ScrollView")
     private MobileElement scrollView;
 
     public ContentScrollingPage(AppiumDriver driver) {

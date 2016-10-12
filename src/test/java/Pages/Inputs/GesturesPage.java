@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.SwipeElementDirection;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 /**
@@ -30,13 +29,13 @@ public class GesturesPage extends BasePage {
     /**
      * A page that performs specific gestures
      */
-    @AndroidFindBy(id = "input_gesture_action_pad")
+    @AndroidFindBy(name = "Gesture Action Pad")
     private MobileElement gestureBox;
 
     /**
      * The displays which lists the performed gestures
      */
-    @AndroidFindBy(id = "input_gesture_content")
+    @AndroidFindBy(name = "Gestures Display")
     private MobileElement display;
 
 
@@ -47,7 +46,7 @@ public class GesturesPage extends BasePage {
     /**
      * Performs a single press
      */
-    public void singlePress(){
+    public void singlePress() {
         gestureBox.click();
     }
 
@@ -63,7 +62,9 @@ public class GesturesPage extends BasePage {
      * performs a fling gesture
      */
     public void flingGesture() {
-        gestureBox.swipe(SwipeElementDirection.UP, 10, 10, 100);
+        try {
+            gestureBox.swipe(SwipeElementDirection.UP, 10, 10, 100);
+        } catch (Exception e) {} // Catch "The swipe did not complete successfully" error
     }
 
     /**
