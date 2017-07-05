@@ -28,19 +28,19 @@ public class LoginPage extends BasePage {
     /**
      * The login button
      */
-    @AndroidFindBy(name = "Login Button")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/login_button")
     private MobileElement loginButton;
 
     /**
      * The user name input
      */
-    @AndroidFindBy(name = "Username Input Field")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/username_text_input")
     private MobileElement usernameField;
 
     /**
      * The password input
      */
-    @AndroidFindBy(name = "Password Input Field")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/password_text_input")
     private MobileElement passwordField;
 
     public LoginPage(AppiumDriver driver) {

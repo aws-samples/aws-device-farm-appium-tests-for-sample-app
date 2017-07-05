@@ -26,13 +26,13 @@ public class AlertPage extends BasePage {
     /**
      * The alert button
      */
-    @AndroidFindBy(name = "ALERT")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/notifications_alert_button")
     private MobileElement alertButton;
 
     /**
      * The toast button
      */
-    @AndroidFindBy(name = "TOAST")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/notifications_toast_button")
     private MobileElement toastButton;
 
     public AlertPage(AppiumDriver driver) {

@@ -22,16 +22,16 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class RadioButtonPage extends BasePage {
 
-    @AndroidFindBy(name = "Radio Button 1")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/radio_button_1")
     private MobileElement radioButton1;
 
-    @AndroidFindBy(name = "Radio Button 2")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/radio_button_2")
     private MobileElement radioButton2;
 
-    @AndroidFindBy(name = "Radio Button 3")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/radio_button_3")
     private MobileElement radioButton3;
 
-    @AndroidFindBy(name = "Radio Button Display")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/input_radio_button_display")
     private MobileElement radioText;
 
     public RadioButtonPage(AppiumDriver driver) {

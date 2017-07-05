@@ -27,7 +27,7 @@ public class EditTextPage extends BasePage {
     /**
      * The text input
      */
-    @AndroidFindBy(name = "Text Input Control")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/input_edit_text")
     private MobileElement textBox;
 
     public EditTextPage(AppiumDriver driver) {

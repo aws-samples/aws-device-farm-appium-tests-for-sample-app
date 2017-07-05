@@ -27,7 +27,7 @@ public class MediaPlayerPage extends BasePage {
     /**
      * The media player
      */
-    @AndroidFindBy(name = "Content Playing")
+    @AndroidFindBy(accessibility = "Content Playing")
     private MobileElement videoView;
 
     public MediaPlayerPage(AppiumDriver driver) {

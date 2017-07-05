@@ -29,13 +29,13 @@ public class GesturesPage extends BasePage {
     /**
      * A page that performs specific gestures
      */
-    @AndroidFindBy(name = "Gesture Action Pad")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/input_gesture_action_pad")
     private MobileElement gestureBox;
 
     /**
      * The displays which lists the performed gestures
      */
-    @AndroidFindBy(name = "Gestures Display")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/input_gesture_content")
     private MobileElement display;
 
 

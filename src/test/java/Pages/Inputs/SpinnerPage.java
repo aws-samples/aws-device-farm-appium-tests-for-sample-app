@@ -35,13 +35,13 @@ public class SpinnerPage extends BasePage{
     /**
      * The spinner control
      */
-    @AndroidFindBy(name = "Spinner Control")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/input_spinner")
     private MobileElement spinner;
 
     /**
      * The text display
      */
-    @AndroidFindBy(name = "Spinner Display")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/input_spinner_message")
     private MobileElement display;
 
     public SpinnerPage(AppiumDriver driver) {
