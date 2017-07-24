@@ -27,7 +27,7 @@ public class HomePage extends BasePage{
     /**
      * The headline of the homepage
      */
-    @AndroidFindBy(name = "Homepage Headline")
+    @AndroidFindBy(accessibility = "Homepage Headline")
     private WebElement headline;
 
     /**

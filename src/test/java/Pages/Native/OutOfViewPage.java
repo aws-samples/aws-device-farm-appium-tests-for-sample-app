@@ -41,7 +41,7 @@ public class OutOfViewPage extends BasePage {
      * @return if the hidden element is displayed
      */
     public boolean isHiddenTextDisplayed() {
-        WebElement outOfViewText = driver.findElementByName("This is hidden text");
+        WebElement outOfViewText = driver.findElementById("com.amazonaws.devicefarm.android.referenceapp:id/hidden_text");
         return outOfViewText.isDisplayed();
     }
 

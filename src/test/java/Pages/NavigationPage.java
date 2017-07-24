@@ -20,6 +20,9 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A page for navigation drawer
  */
@@ -30,7 +33,7 @@ public class NavigationPage extends BasePage{
     /**
      * Get the toggle button
      */
-    @AndroidFindBy(name = "ReferenceApp")
+    @AndroidFindBy(accessibility = "ReferenceApp")
     private WebElement toggle;
 
     public NavigationPage(AppiumDriver driver) {
@@ -52,14 +55,19 @@ public class NavigationPage extends BasePage{
         }
 
         WebElement categoryElement = null;
+        List<WebElement> categoryElements;
 
         while (categoryElement == null) {
-            try {
-                counter++;
-                if (counter == TRIES)
-                    return;
-                categoryElement = driver.findElementByName(categoryName);
-            } catch (NoSuchElementException e) {
+            counter++;
+            if (counter == TRIES)
+                return;
+            categoryElements = driver.findElementsById("com.amazonaws.devicefarm.android.referenceapp:id/drawer_row_title");
+            for (WebElement categoryTitleElement: categoryElements){
+                String titleText = categoryTitleElement.getText();
+                if (titleText.equalsIgnoreCase(categoryName)) categoryElement = categoryTitleElement;
+
+            }
+            if (categoryElement == null) {
                 driver.scrollTo(categoryName);
             }
         }

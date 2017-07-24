@@ -38,6 +38,7 @@ public class TabViewPage extends BasePage{
     }
 
     public void turnPageLeft() throws InterruptedException {
+        acceptBadVideoAlert();
         Dimension size = driver.manage().window().getSize();
         int startX = (int) (size.width * START_OFFSET);
         int endX = (int) (size.width * END_OFFSET);
@@ -50,8 +51,8 @@ public class TabViewPage extends BasePage{
     private void acceptBadVideoAlert() throws InterruptedException {
         Thread.sleep(ALERT_POP_UP_DELAY);
 
-        if (!driver.findElementsByName(BAD_VIDEO_TEXT).isEmpty()) {
-            WebElement okButton = driver.findElementByName(OK_BUTTON_NAME);
+        if (!driver.findElementsById("android:id/message").isEmpty()) {
+            WebElement okButton = driver.findElementById("android:id/button1");
             okButton.click();
         }
     }

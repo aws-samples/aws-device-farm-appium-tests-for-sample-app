@@ -28,13 +28,13 @@ public class NestedViewsPage extends BasePage {
     /**
      * Up option button
      */
-    @AndroidFindBy(name = "UP NAVIGATION")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/nested_up_button")
     private MobileElement upButton;
 
     /**
      * Back option button
      */
-    @AndroidFindBy(name = "BACK NAVIGATION")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/nested_back_button")
     private MobileElement backButton;
 
     public NestedViewsPage(AppiumDriver driver) {
@@ -68,14 +68,14 @@ public class NestedViewsPage extends BasePage {
      * Presses the next button
      */
     public void pressNextUpButton() {
-        driver.findElementByName("NEXT LEVEL").click();
+        driver.findElementById("com.amazonaws.devicefarm.android.referenceapp:id/nested_up_button").click();
     }
 
     /**
      * Presses the up button in the toolbar
      */
     public void navigateUp() {
-        driver.findElementByName("Navigate up").click();
+        driver.findElementByAccessibilityId("Navigate up").click();
     }
 
     /**
@@ -89,7 +89,7 @@ public class NestedViewsPage extends BasePage {
      * Presses the next button
      */
     public void pressNextBackButton() {
-        driver.findElementByName("NEXT LEVEL").click();
+        driver.findElementById("com.amazonaws.devicefarm.android.referenceapp:id/back_navigation_next_button").click();
     }
 
     /**
@@ -97,6 +97,6 @@ public class NestedViewsPage extends BasePage {
      * @return the counter text
      */
     public String getCounter() {
-        return driver.findElementByName("Level Display").getText();
+        return driver.findElementByAccessibilityId("Level Display").getText();
     }
 }

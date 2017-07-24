@@ -35,7 +35,7 @@ public class PullToRefreshPage extends BasePage
     /**
      * The display
      */
-    @AndroidFindBy(name = "Refresh Display")
+    @AndroidFindBy(id = "com.amazonaws.devicefarm.android.referenceapp:id/input_refresh_display")
     private MobileElement display;
 
     public PullToRefreshPage(AppiumDriver driver) {
