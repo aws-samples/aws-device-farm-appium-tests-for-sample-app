@@ -5,18 +5,18 @@ This is a collection of example Appium TestNG tests written for the AWS Device F
 
 # Android
 ## Getting Started
-1. Follow the **[official Appium getting started guide](http://appium.io/slate/en/tutorial/android.html?java#getting-started-with-appium)** and install the Appium server and dependencies. 
+1. Follow the **[official Appium getting started guide](http://appium.io/docs/en/about-appium/getting-started)** and install the Appium server and dependencies. 
 
-	**AWS Device Farm supports Appium version 1.7.2. Using a different version locally may cause unexpected results when running Appium tests on AWS Device Farm.**
-2. In order to use 1.7.2, download Appium through NPM with this command: 
+	**AWS Device Farm supports Appium server versions: 1.9.1, 1.10.1, 1.11.1, 1.12.1, 1.13.0, 1.14.1, 1.14.2, 1.15.1 and 1.16.0.**
+2. In order to use default 1.9.1, download Appium through NPM with this command: 
 	```
-	npm install -g appium@1.7.2
+	npm install -g appium@1.9.1
 	```
 3. Verify that you have Appium installed with this command: 
 	```
 	appium -v
 	```
-   You should get "1.7.2" as the output
+   You should get "1.9.1" as the output
 
 ## Creating a new Java Appium Test Project Using Maven
 1. Create a new Maven project using a Java IDE. **The example in this tutorial is for [IntelliJ IDEA Community Edition](http://www.jetbrains.com/idea/download/)**.
